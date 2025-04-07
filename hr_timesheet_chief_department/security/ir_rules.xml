@@ -18,7 +18,7 @@
                 ('project_id', '!=', False),
                 '&amp;',
                     ('manager_id', '=', user.employee_id.id),
-                '&amp;',
+                    '|',
                     ('employee_id.department_id', '=', user.employee_id.department_id.id),
                     ('employee_id', '!=', user.employee_id.id)
             ]</field>
