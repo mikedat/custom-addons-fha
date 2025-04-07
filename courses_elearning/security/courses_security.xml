@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record model="ir.modulo.category" id="courses_elearning_category">
+            <field name="name">courses_elearning</field>
+            <field name="description">Acceso a courses_elearning</field>
+            <field name="sequence">25</field>
+        </record>
+    </data>
+</odoo>

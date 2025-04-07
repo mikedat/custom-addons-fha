@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+  <odoo>
+      
+    <!-- View hr_timesheets_chief_department_views form -->
+    <record id="view_hr_timesheets_chief_department_views_form" model="ir.ui.view">
+        <field name="name">view.hr_timesheets_chief_department_views.form</field>
+        <field name="model">hr_timesheets_chief_department_views</field>
+        <field name="inherit_id" ref=""/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='']">
+            </xpath>
+        </field>
+    </record>
+
+
+    <!-- View hr_timesheets_chief_department_views tree -->
+    <record id="view_hr_timesheets_chief_department_views_tree" model="ir.ui.view">
+        <field name="name">view.hr_timesheets_chief_department_views.tree</field>
+        <field name="model">hr_timesheets_chief_department_views</field>
+        <field name="inherit_id" ref=""/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='']">
+            </xpath>
+        </field>
+    </record>
+
+
+    <!-- View hr_timesheets_chief_department_views kanban -->
+    <record id="view_hr_timesheets_chief_department_views_kanban" model="ir.ui.view">
+        <field name="name">view.hr_timesheets_chief_department_views.kanban</field>
+        <field name="model">hr_timesheets_chief_department_views</field>
+        <field name="inherit_id" ref=""/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='']">
+            </xpath>
+        </field>
+    </record>
+
+  </odoo>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record model="ir.actions.act_window" id="action_courses_elearning">
+            <field name="name">Cursos disponibles en E-Learning</field>
+            <field name="res_model">slide.channel</field>
+            <field name="view_mode">kanban,tree</field>
+        </record>
+    </data>
+</odoo>

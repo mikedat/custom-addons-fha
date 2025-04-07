@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <menuitem id="courses_elearning.menu_root" name="Cursos E-Learning"/>
+    </data>
+</odoo>
