@@ -47,9 +47,5 @@
             <field name="groups" eval="[(4, ref('group_hr_timesheet_bossarea'))]" />
         </record>
         <!-- Regla para los jefes de area -->
-
-
-
-
     </data>
 </odoo>
