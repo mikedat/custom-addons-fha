@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+      <menuitem
+        id="menu_maintenance_dashboard"
+        name="Dashboard"
+        parent="maintenance.menu_maintenance_title"
+        action="hr_maintenance_dashboard.maintenance_dashboard_action"
+        sequence="10"/>
+    </data>
+</odoo>

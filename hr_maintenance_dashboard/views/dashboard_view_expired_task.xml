@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- vista tree para las vistas expiradas -->
+        <record id="dashboard_expired_task_view_tree" model="ir.ui.view">
+            <field name="name">dashboard_expired_task.view.tree</field>
+            <field name="model">maintenance.request</field>
+            <field name="arch" type="xml">
+                <tree string="Tareas pendientes">
+                    <field name="name"/>
+                    <field name="description"/>
+                    <field name="schedule_date"/>
+                    <field name="priority"/>
+                    <field name="maintenance_type"/>
+                    <field name="user_id" />
+                </tree>
+            </field>
+        </record>
+
+        <!-- vista kanban para las vistas expiradas -->
+        <record id="dashboard_expired_task_view_kanban" model="ir.ui.view">
+            <field name="name">dashboard_expired_task.view.kanban</field>
+            <field name="model">maintenance.request</field>
+            <field name="arch" type="xml">
+                <kanban default_group_by="maintenance_team_id" sample="1">
+                    <field name="maintenance_team_id"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="oe_kanban_global_click">
+                                <h4>
+                                    <a type="open">Tarea: <field name="name"/></a>
+                                </h4>
+                                <ul>
+                                    <li>Responsable: <field name="user_id"/></li>
+                                    <li>Prioridad de la tarea: <field name="priority"/></li>
+                                    <li>Fecha agendada: <field name="schedule_date"/></li>
+                                    <li>Tipo de mantenimiento: <field name="maintenance_type"/></li>
+                                </ul>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+    </data>
+</odoo>

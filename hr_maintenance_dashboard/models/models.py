@@ -3,9 +3,9 @@
 # from odoo import models, fields, api
 
 
-# class hr_maintenance_administration(models.Model):
-#     _name = 'hr_maintenance_administration.hr_maintenance_administration'
-#     _description = 'hr_maintenance_administration.hr_maintenance_administration'
+# class hr_maintenance_dashboard(models.Model):
+#     _name = 'hr_maintenance_dashboard.hr_maintenance_dashboard'
+#     _description = 'hr_maintenance_dashboard.hr_maintenance_dashboard'
 
 #     name = fields.Char()
 #     value = fields.Integer()
