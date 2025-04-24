@@ -32,7 +32,7 @@
                                 </h4>
                                 <ul>
                                     <li>Responsable: <field name="user_id"/></li>
-                                    <li>Prioridad de la tarea: <field name="priority"/></li>
+                                    <li>Prioridad de la tarea: <field name="priority"  widget="priority"/></li>
                                     <li>Fecha agendada: <field name="schedule_date"/></li>
                                     <li>Tipo de mantenimiento: <field name="maintenance_type"/></li>
                                 </ul>
