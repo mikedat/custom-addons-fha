@@ -103,63 +103,109 @@ class MaintenanceRequest(models.Model):
             'views': [
             (self.env.ref('hr_maintenance_dashboard.dashboard_pending_task_view_kanban').id, 'kanban'),
             (self.env.ref('hr_maintenance_dashboard.dashboard_pending_task_view_tree').id, 'tree'),
-            (False, 'form')
-            ]}
+            (False, 'form')]}
 
     #Obtenemos los IDs de las tareas expiradas, con estos IDs es con lo que luego podemos formar los Json de arriba 
     def _compute_expired_tasks(self):
-        user_teams = self.env['maintenance.team'].search([('member_ids', 'in', self.env.user.id)])
-        user_team_ids = user_teams.ids
-        for record in self:
-            tasks = self.env['maintenance.request'].search([
+        is_admin = self.env.user._is_admin()
+        if is_admin:
+            domain = [
+                ('schedule_date', '<', fields.Datetime.today()),
+                ('stage_id.done', '=', False)
+            ]
+        else:
+            user_teams = self.env['maintenance.team'].search([('member_ids', 'in', self.env.user.id)])
+            user_team_ids = user_teams.ids
+            domain = [
                 ('schedule_date', '<', fields.Datetime.today()),
                 ('stage_id.done', '=', False),
                 ('maintenance_team_id.id', 'in', user_team_ids)
-            ])
+            ]
+
+        tasks = self.env['maintenance.request'].search(domain)
+
+        for record in self:
             record.expired_task = tasks
 
     #Obtenemos los IDs de las tareas pendientes, con estos IDs es con lo que luego podemos formar los Json de arriba
     def _compute_pending_tasks(self):
-        user_teams = self.env['maintenance.team'].search([('member_ids', 'in', self.env.user.id)])
-        user_team_ids = user_teams.ids
-        for record in self:
-            task = self.env['maintenance.request'].search([
+        is_admin = self.env.user._is_admin()
+        if is_admin:
+            domain = [
+                ('schedule_date', '>=', fields.Datetime.today()),
+                ('stage_id.done', '=', False)
+            ]
+        else:
+            user_teams = self.env['maintenance.team'].search([('member_ids', 'in', self.env.user.id)])
+            user_team_ids = user_teams.ids
+            domain = [
                 ('schedule_date', '>=', fields.Datetime.today()),
                 ('stage_id.done', '=', False),
                 ('maintenance_team_id.id', 'in', user_team_ids)
-            ])
-            record.pending_task = task
+            ]
+
+        tasks = self.env['maintenance.request'].search(domain)
+
+        for record in self:
+            record.pending_task = tasks
 
     #Obtenemos los IDs de las tareas ejecutadas pero fuera de plazo, con estos IDs es con lo que luego podemos formar los Json de arriba
     def _compute_executed_expired_tasks(self):
-        user_teams = self.env['maintenance.team'].search([('member_ids', 'in', self.env.user.id)])
-        user_team_ids = user_teams.ids
+        is_admin = self.env.user._is_admin()
+        if is_admin:
+            domain = [
+                ('schedule_date', '<', fields.Datetime.today()),
+                ('stage_id.done', '=', True)
+            ]
+        else:
+            user_teams = self.env['maintenance.team'].search([('member_ids', 'in', self.env.user.id)])
+            user_team_ids = user_teams.ids
+            domain = [
+                ('schedule_date', '<', fields.Datetime.today()),
+                ('stage_id.done', '=', True),
+                ('maintenance_team_id.id', 'in', user_team_ids)
+            ]
+
+        tasks = self.env['maintenance.request'].search(domain)
+
         for record in self:
-            record.executed_expired_task = self.env['maintenance.request'].search([
-                 ('schedule_date', '<', fields.Datetime.today()),
-                 ('stage_id.done', '=', True),
-                 ('maintenance_team_id.id', 'in', user_team_ids)
-            ])
+            record.executed_expired_task = tasks
 
     #Obtenemos los IDs de las tareas ejecutadas, con estos IDs es con lo que luego podemos formar los Json de arriba
     def _compute_executed_tasks(self):
-        user_teams = self.env['maintenance.team'].search([('member_ids', 'in', self.env.user.id)])
-        user_team_ids = user_teams.ids
-        for record in self:
-            record.executed_task = self.env['maintenance.request'].search([
+        is_admin = self.env.user._is_admin()
+        if is_admin:
+            domain = [
+                ('schedule_date', '>=', fields.Datetime.today()),
+                ('stage_id.done', '=', True)
+            ]
+        else:
+            user_teams = self.env['maintenance.team'].search([('member_ids', 'in', self.env.user.id)])
+            user_team_ids = user_teams.ids
+            domain = [
                 ('schedule_date', '>=', fields.Datetime.today()),
                 ('stage_id.done', '=', True),
                 ('maintenance_team_id.id', 'in', user_team_ids)
-            ])
+            ]
+
+        tasks = self.env['maintenance.request'].search(domain)
+
+        for record in self:
+            record.executed_task = tasks
 
     #Función para obtener el número de las tareas tanto de las pendientes como de las ejecutadas.
     @api.depends('stage_id.done')
     def _compute_dashboard_counts(self):
         # Obtener el número de las tareas
-        user_teams = self.env['maintenance.team'].search([('member_ids', 'in', self.env.user.id)])
-        user_team_ids = user_teams.ids
-        pending = self.env['maintenance.request'].search_count([('stage_id.done', '=', False),('maintenance_team_id.id', 'in', user_team_ids)])
-        completed = self.env['maintenance.request'].search_count([('stage_id.done', '=', True),('maintenance_team_id.id', 'in', user_team_ids)])
+        is_admin = self.env.user._is_admin()
+        if is_admin:
+            pending = self.env['maintenance.request'].search_count([('stage_id.done', '=', False)])
+            completed = self.env['maintenance.request'].search_count([('stage_id.done', '=', True)])
+        else:
+            user_teams = self.env['maintenance.team'].search([('member_ids', 'in', self.env.user.id)])
+            user_team_ids = user_teams.ids
+            pending = self.env['maintenance.request'].search_count([('stage_id.done', '=', False),('maintenance_team_id.id', 'in', user_team_ids)])
+            completed = self.env['maintenance.request'].search_count([('stage_id.done', '=', True),('maintenance_team_id.id', 'in', user_team_ids)])
         
         # Asignar los valores a los registros
         for record in self:

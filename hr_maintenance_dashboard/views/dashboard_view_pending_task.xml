@@ -16,14 +16,13 @@
                 </tree>
             </field>
         </record>
-        
+  
         <!-- vista kanban para las vistas pendientes -->
         <record id="dashboard_pending_task_view_kanban" model="ir.ui.view">
             <field name="name">dashboard_pending_task.view.kanban</field>
             <field name="model">maintenance.request</field>
             <field name="arch" type="xml">
-                <kanban default_group_by="maintenance_team_id" sample="1">
-                    <field name="maintenance_team_id"/>
+                <kanban default_group_by="maintenance_team_id">
                     <templates>
                         <t t-name="kanban-box">
                             <div class="oe_kanban_global_click">
