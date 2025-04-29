@@ -3,9 +3,9 @@
 # from odoo import models, fields, api
 
 
-# class hr_purchases_mod(models.Model):
-#     _name = 'hr_purchases_mod.hr_purchases_mod'
-#     _description = 'hr_purchases_mod.hr_purchases_mod'
+# class purchase_departments(models.Model):
+#     _name = 'purchase_departments.purchase_departments'
+#     _description = 'purchase_departments.purchase_departments'
 
 #     name = fields.Char()
 #     value = fields.Integer()

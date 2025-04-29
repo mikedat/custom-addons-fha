@@ -1,12 +1,13 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "hr_purchases_mod",
+    'name': "Permisos departamentales en compras",
 
     'summary': """
-        Addon para modificar filtros y permisos en el modulo de compras """,
+        Módulo para añadir permisos en la visualización de las compras
+        """,
 
     'description': """
-        Long description of module's purpose
+        Módulo para añadir permisos en la visualización de las compras
     """,
 
     'author': "Miquel de Antonio Torné",
@@ -19,13 +20,12 @@
     'version': '1.0',
 
     # any module necessary for this one to work correctly
-    'depends': ['base', 'purchase'],
+    'depends': ['base','purchase','hr'],
 
     # always loaded
     'data': [
-        # 'security/ir.model.access.csv',
-        'views/views.xml',
-        'views/templates.xml',
+        'security/ir_rules.xml',
+        'security/ir.model.access.csv'
     ],
     # only loaded in demonstration mode
     'demo': [
