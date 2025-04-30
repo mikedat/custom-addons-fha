@@ -8,7 +8,7 @@ Actualmente, el código fuente y los módulos activos se encuentran en ramas esp
 
 ## Rama de desarrollo principal
 
-[fha-custom-addons-odoo-16](https://github.com/tu-usuario/tu-repo/tree/fha-custom-addons-odoo-16): rama principal de trabajo con los módulos personalizados en Odoo 16
+[fha-custom-addons-odoo-16](https://github.com/mikedat/custom-addons-fha/tree/fha-custom-addons-odoo-16?tab=readme-ov-file): rama principal de trabajo con los módulos personalizados en Odoo 16
 
 ---
 
