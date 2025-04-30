@@ -1,1 +1,1 @@
-Repositorio para los custom addons de Odoo16
+Repositorio para custom addons de Oodo.
