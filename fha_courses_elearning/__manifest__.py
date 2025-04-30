@@ -26,12 +26,6 @@
         'views/courses_views.xml',
         'views/courses_menu.xml',
         'views/courses_actions.xml'
-       # 'views/templates.xml',
-       # 'views/views.xml'
     ],
     'application': True,
-    # only loaded in demonstration mode
-    'demo': [
-        'demo/demo.xml',
-    ],
 }
