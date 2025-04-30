@@ -26,19 +26,12 @@
 
     # always loaded
     'data': [
-        # 'security/ir.model.access.csv',
-        'views/templates.xml',
         'views/dashboard_view.xml',
         'views/dashboard_view_expired_task.xml',
         'views/dashboard_view_pending_task.xml',
         'views/dashboard_action.xml',
         'views/dashboard_menu.xml',
-        'views/views.xml'
     ],
     'installable': True,
     'application': True,
-    # only loaded in demonstration mode
-    'demo': [
-        'demo/demo.xml',
-    ],
 }

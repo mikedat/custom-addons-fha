@@ -25,7 +25,6 @@
             eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"
         />
     </record>
-    <!-- He cambiado el permission_loquesea = user.id por permission_loquesea = 1, no sé si está bien o no, funcionar funciona de esa manera. -->
     <record id="rule_multi_company_storage" model="ir.rule">
         <field name="name">DMS Storage multi-company</field>
         <field name="model_id" ref="model_dms_storage" />
@@ -109,7 +108,7 @@
     </record>
     <!-- These rules leverage computed permission management -->
     <record id="rule_directory_computed_create" model="ir.rule">
-        <field name="name">Apply computed create permissions.</field>
+        <field name="name">Apply computed create permissions. 1</field>
         <field name="model_id" ref="model_dms_directory" />
         <field name="global" eval="True" />
         <field name="perm_read" eval="0" />
@@ -119,7 +118,7 @@
         <field name="domain_force">[('permission_create', '=', user.id)]</field>
     </record>
     <record id="rule_directory_computed_read" model="ir.rule">
-        <field name="name">Apply computed read permissions.</field>
+        <field name="name">Apply computed read permissions. 2</field>
         <field name="model_id" ref="model_dms_directory" />
         <field name="global" eval="True" />
         <field name="perm_read" eval="1" />
@@ -129,7 +128,7 @@
         <field name="domain_force">[('permission_read', '=', user.id)]</field>
     </record>
     <record id="rule_directory_computed_unlink" model="ir.rule">
-        <field name="name">Apply computed unlink permissions.</field>
+        <field name="name">Apply computed unlink permissions. 3</field>
         <field name="model_id" ref="model_dms_directory" />
         <field name="global" eval="True" />
         <field name="perm_read" eval="0" />
@@ -139,7 +138,7 @@
         <field name="domain_force">[('permission_unlink', '=', user.id)]</field>
     </record>
     <record id="rule_directory_computed_write" model="ir.rule">
-        <field name="name">Apply computed write permissions.</field>
+        <field name="name">Apply computed write permissions. 4</field>
         <field name="model_id" ref="model_dms_directory" />
         <field name="global" eval="True" />
         <field name="perm_read" eval="0" />
@@ -149,7 +148,7 @@
         <field name="domain_force">[('permission_write', '=', user.id)]</field>
     </record>
     <record id="rule_file_computed_create" model="ir.rule">
-        <field name="name">Apply computed create permissions.</field>
+        <field name="name">Apply computed create permissions. 5</field>
         <field name="model_id" ref="model_dms_file" />
         <field name="global" eval="True" />
         <field name="perm_read" eval="0" />
@@ -159,7 +158,7 @@
         <field name="domain_force">[('permission_create', '=', user.id)]</field>
     </record>
     <record id="rule_file_computed_read" model="ir.rule">
-        <field name="name">Apply computed read permissions.</field>
+        <field name="name">Apply computed read permissions. 6</field>
         <field name="model_id" ref="model_dms_file" />
         <field name="global" eval="True" />
         <field name="perm_read" eval="1" />
@@ -169,7 +168,7 @@
         <field name="domain_force">[('permission_read', '=', user.id)]</field>
     </record>
     <record id="rule_file_computed_unlink" model="ir.rule">
-        <field name="name">Apply computed unlink permissions.</field>
+        <field name="name">Apply computed unlink permissions. 7</field>
         <field name="model_id" ref="model_dms_file" />
         <field name="global" eval="True" />
         <field name="perm_read" eval="0" />
@@ -179,7 +178,7 @@
         <field name="domain_force">[('permission_unlink', '=', user.id)]</field>
     </record>
     <record id="rule_file_computed_write" model="ir.rule">
-        <field name="name">Apply computed write permissions.</field>
+        <field name="name">Apply computed write permissions. 8</field>
         <field name="model_id" ref="model_dms_file" />
         <field name="global" eval="True" />
         <field name="perm_read" eval="0" />
