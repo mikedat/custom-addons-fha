@@ -1,4 +1,4 @@
-Módulos personalizados para Odoo
+## Módulos personalizados para Odoo
 
 Este repositorio contiene desarrollos personalizados para Odoo.
 
@@ -8,7 +8,7 @@ Actualmente, el código fuente y los módulos activos se encuentran en ramas esp
 
 ## Rama de desarrollo principal
 
-[fha-custom-addons-odoo-16](https://github.com/tu-usuario/tu-repo/tree/fha-custom-addons-odoo-16): rama principal de trabajo con los módulos personalizados.
+[fha-custom-addons-odoo-16](https://github.com/tu-usuario/tu-repo/tree/fha-custom-addons-odoo-16): rama principal de trabajo con los módulos personalizados en Odoo 16
 
 ---
 
@@ -20,23 +20,13 @@ Actualmente, el código fuente y los módulos activos se encuentran en ramas esp
 
 ---
 
-## 🛠️ Estructura de ramas (en desarrollo)
+##  Estructura de ramas
 
 - `main`: Rama informativa y de referencia.
-- `fha-custom-addons-odoo-16`: Rama actual de desarrollo.
-- Futuras ramas podrían incluir entornos como `dev`, `prod` o clientes específicos.
-
+- `fha-custom-addons-odoo-16`: Rama actual de desarrollo, con la versión de Odoo 16.
 ---
 
-## 📂 Contenido habitual (en ramas activas)
+## Mantenimiento
 
-- Módulos desarrollados en Python.
-- Archivos XML de vistas y acciones.
-- Controladores, modelos y plantillas personalizadas.
-
----
-
-## 👨‍💻 Mantenimiento
-
-Repositorio mantenido por [Tu Nombre o Equipo].
+Repositorio mantenido por Miquel de Antonio Torné.
 
