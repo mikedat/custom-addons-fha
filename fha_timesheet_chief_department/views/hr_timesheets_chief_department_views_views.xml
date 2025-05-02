@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
-        <!-- View hr_timesheets_chief_department_views tree tus partes -->
+        <!-- View fha_timesheets_chief_department_views tree tus partes -->
         <record id="view_hr_timesheets_chief_department_views_tree_mine" model="ir.ui.view">
             <field name="name">view.hr_timesheets_chief_department_views_mine.tree</field>
             <field name="model">account.analytic.line</field>

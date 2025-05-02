@@ -2,15 +2,15 @@
 <odoo>
     <data>
         <record id="hr_timesheet.timesheet_menu_activity_all" model="ir.ui.menu">
-            <field name="groups_id" eval="[(4, ref('hr_timesheet_chief_department.group_hr_timesheet_head'))]"/>
+            <field name="groups_id" eval="[(4, ref('fha_timesheet_chief_department.group_hr_timesheet_head'))]"/>
         </record>
 
         <record id="hr_timesheet.timesheet_menu_activity_mine" model="ir.ui.menu">
-            <field name="groups_id" eval="[(4, ref('hr_timesheet_chief_department.group_hr_timesheet_head'))]"/>
+            <field name="groups_id" eval="[(4, ref('fha_timesheet_chief_department.group_hr_timesheet_head'))]"/>
         </record>
 
         <record id="hr_timesheet.menu_hr_time_tracking" model="ir.ui.menu">
-            <field name="groups_id" eval="[(4, ref('hr_timesheet_chief_department.group_hr_timesheet_head'))]"/>
+            <field name="groups_id" eval="[(4, ref('fha_timesheet_chief_department.group_hr_timesheet_head'))]"/>
         </record>
     </data>
 </odoo>

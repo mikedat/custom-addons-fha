@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
-        <menuitem id="courses_elearning.menu_root" name="Cursos E-Learning"/>
+        <menuitem id="fha_courses_elearning.menu_root" name="Cursos E-Learning" 
+        action="fha_courses_elearning.action_courses_elearning"/>
     </data>
 </odoo>

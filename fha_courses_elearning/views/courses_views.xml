@@ -2,7 +2,7 @@
 <odoo>
   <data>
     <!-- Vista tree -->
-    <record model="ir.ui.view" id="courses_elearning_list">
+    <record model="ir.ui.view" id="fha_courses_elearning_list">
       <field name="name">courses_elearning.list</field>
       <field name="model">slide.channel</field>
       <field name="arch" type="xml">
@@ -18,7 +18,7 @@
     <!-- Fin de la vista tree -->
 
     <!-- Inicio de la vista kanban -->
-    <record model="ir.ui.view" id="courses_elearning_kanban">
+    <record model="ir.ui.view" id="fha_courses_elearning_kanban">
       <field name="name">courses_elearning.kanban</field>
       <field name="model">slide.channel</field>
       <field name="arch" type="xml">

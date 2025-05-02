@@ -1,2 +1,2 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_courses_elearning_courses_elearning,courses_elearning.courses_elearning,model_courses_elearning_courses_elearning,base.group_user,1,1,1,1
+access_courses_fha_elearning_courses_elearning,fha_courses_elearning.courses_elearning,model_courses_elearning_courses_elearning,base.group_user,1,1,1,1
