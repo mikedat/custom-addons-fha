@@ -22,8 +22,9 @@
     # always loaded
     'data': [
         'security/ir_rule.xml',
-        'views/views.xml',
-        'views/templates.xml',
+        'views/followers_action.xml',
+        'views/followers_menu.xml',
+        'views/followers_view.xml'
     ],
     # only loaded in demonstration mode
     'demo': [

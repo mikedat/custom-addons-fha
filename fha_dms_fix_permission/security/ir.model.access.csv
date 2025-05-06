@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_fha_dms_fix_permission_fha_dms_fix_permission,fha_dms_fix_permission.fha_dms_fix_permission,model_fha_dms_fix_permission_fha_dms_fix_permission,base.group_user,1,1,1,1

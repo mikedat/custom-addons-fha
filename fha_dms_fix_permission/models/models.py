@@ -3,9 +3,9 @@
 # from odoo import models, fields, api
 
 
-# class fha_followers_purchase_permission(models.Model):
-#     _name = 'fha_followers_purchase_permission.fha_followers_purchase_permission'
-#     _description = 'fha_followers_purchase_permission.fha_followers_purchase_permission'
+# class fha_dms_fix_permission(models.Model):
+#     _name = 'fha_dms_fix_permission.fha_dms_fix_permission'
+#     _description = 'fha_dms_fix_permission.fha_dms_fix_permission'
 
 #     name = fields.Char()
 #     value = fields.Integer()

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="action_follower_purchase_orders_fha" model="ir.actions.act_window">
+            <field name="name">Compras en las que eres seguidor</field>
+            <field name="res_model">purchase.order</field>
+            <field name="view_mode">tree,kanban,pivot,graph,calendar</field>
+            <field name="domain">[('is_follower', '=', True)]</field>
+        </record>
+    </data>
+</odoo>
