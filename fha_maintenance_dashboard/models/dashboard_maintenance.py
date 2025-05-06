@@ -82,8 +82,8 @@ class MaintenanceRequest(models.Model):
             'target': 'main',
             'domain': [('schedule_date', '<', fields.Datetime.today()), ('stage_id.done', '=', False)],
             'views': [
-            (self.env.ref('hr_maintenance_dashboard.dashboard_expired_task_view_kanban').id, 'kanban'),
-            (self.env.ref('hr_maintenance_dashboard.dashboard_expired_task_view_tree').id, 'tree'),
+            (self.env.ref('fha_maintenance_dashboard.dashboard_expired_task_view_kanban').id, 'kanban'),
+            (self.env.ref('fha_maintenance_dashboard.dashboard_expired_task_view_tree').id, 'tree'),
             (False, 'form')
         ]}
     
@@ -95,14 +95,14 @@ class MaintenanceRequest(models.Model):
             'res_model': 'maintenance.request',
             'type': 'ir.actions.act_window',
             'target': 'main',
-            'search_view_id': self.env.ref('hr_maintenance_dashboard.dashboard_filters_view_search').id,
+            'search_view_id': self.env.ref('fha_maintenance_dashboard.dashboard_filters_view_search').id,
             'context': {
             'search_default_filter_pending_day': True,
             },
             'domain':[('stage_id.done', '=', False), ('schedule_date', '>=', fields.Datetime.today())],
             'views': [
-            (self.env.ref('hr_maintenance_dashboard.dashboard_pending_task_view_kanban').id, 'kanban'),
-            (self.env.ref('hr_maintenance_dashboard.dashboard_pending_task_view_tree').id, 'tree'),
+            (self.env.ref('fha_maintenance_dashboard.dashboard_pending_task_view_kanban').id, 'kanban'),
+            (self.env.ref('fha_maintenance_dashboard.dashboard_pending_task_view_tree').id, 'tree'),
             (False, 'form')]}
 
     #Obtenemos los IDs de las tareas expiradas, con estos IDs es con lo que luego podemos formar los Json de arriba 

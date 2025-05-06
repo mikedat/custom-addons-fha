@@ -10,7 +10,6 @@
             </record>
         <!-- grupo para los seguidores de la compra -->
 
-
         <!-- Inicio para la regla de los seguidores de la compra -->
             <record id="rule_followers_purchase" model="ir.rule">
                 <field name="name">Regla para los seguidores de la compra</field>
