@@ -7,11 +7,7 @@ Extiende el módulo `base_tier_validation` para gestionar aprobaciones en ausenc
 - `hr_holidays`
 
 ### Instalacin
-1. Clona el repositorio en tu carpeta de módulos:
-   ```bash
-   git clone https://github.com/tu_usuario/tu_repositorio.git ./addons/tu_modulo
-
-2. Ves a la sección de aplicaciones de tu Odoo y busca "fha_leaves_tier_validation".
+1. Ves a la sección de aplicaciones de tu Odoo y busca "fha_leaves_tier_validation".
 
 
 ### Configuración
@@ -24,4 +20,5 @@ Extiende el módulo `base_tier_validation` para gestionar aprobaciones en ausenc
 3. Marcar las opciones de "Aprobar por secuencia" y "Aprobar omisión de secuencia".
 4. Como herramienta adicional, debajo del formulario puedes añadir un dominio para filtrar por las ausencias que necesites.
 #### Ejemplo de dominio
-`[('numero_de_dias', '>', 3)]`  >> con este dominio filtrariamos por el número de días de las ausencias entrantes.  
+`[('numero_de_dias', '>', 3)]` 
+con este dominio filtrariamos por el número de días de las ausencias entrantes.  
