@@ -10,7 +10,7 @@
     "depends": [
         "purchase",
         "contacts",
-        "tier",
+        "base_tier_validation",
     ],
     "license": "AGPL-3",
     "data": [
