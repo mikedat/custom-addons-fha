@@ -12,4 +12,5 @@ En esta rama se encuentran los módulos custom para la versión 16 de Odoo
   - [Módulo para añadir campo descripción al módulo Compras](https://github.com/mikedat/custom-addons-fha/tree/fha-custom-addons-odoo-16/fha_description_purchase)
   - [Módulo para que los seguidores de las compras tengan permisos](https://github.com/mikedat/custom-addons-fha/tree/fha-custom-addons-odoo-16/fha_followers_purchase_permission)
   - [Módulo para solucionar permisos en DMS](https://github.com/mikedat/custom-addons-fha/tree/fha-custom-addons-odoo-16/fha_dms_fix_permission)
+  - [Módulo para validaciones de ausencias](https://github.com/mikedat/custom-addons-fha/tree/fha-custom-addons-odoo-16/fha_leaves_tier_validation)
 
