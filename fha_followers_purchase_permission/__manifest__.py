@@ -13,21 +13,15 @@
     'author': "Miquel de Antonio Torné",
     'website': "https://www.yourcompany.com",
 
-    'category': 'Uncategorized',
+    'category': 'Inventory/Purchase',
     'version': '1.0',
 
-    # any module necessary for this one to work correctly
     'depends': ['base','purchase'],
 
-    # always loaded
     'data': [
         'security/ir_rule.xml',
         'views/followers_action.xml',
         'views/followers_menu.xml',
         'views/followers_view.xml'
-    ],
-    # only loaded in demonstration mode
-    'demo': [
-        'demo/demo.xml',
-    ],
+    ]
 }
