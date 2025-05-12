@@ -1,11 +1,10 @@
 {
-    "name": "Calificacion en compras",
-    "summary": """Calificacion en compras""",
+    "name": "Incidencias en compras",
+    "summary": """Incidencias en compras""",
     "version": "16.0.1.0.0",
-    "description": """Calificacion en compras""",
-    "author": "Dani Domínguez",
-    "company": "Xtendoo",
-    "website": "http://xtendoo.es",
+    "description": """Incidencias en compras""",
+    "author": "Miquel de Antonio Torné",
+    "company": "MyCompany",
     "category": "Purchase",
     "depends": [
         "purchase",
@@ -14,6 +13,7 @@
     ],
     "license": "AGPL-3",
     "data": [
+        "security/ir_rule.xml",
         "views/purchase_view.xml",
         "views/res_partner.xml",
     ],

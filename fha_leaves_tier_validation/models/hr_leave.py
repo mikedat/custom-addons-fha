@@ -7,7 +7,7 @@ from odoo import models
 class hr_leave(models.Model):
     _name = "hr.leave"
     _inherit = ["hr.leave", "tier.validation"]
-    _state_from = ["draft", "confirm"]
+    _state_from = ["draft", "confirm", "validate1"]
     _state_to = ["validate"]
     _tier_validation_manual_config = False
     

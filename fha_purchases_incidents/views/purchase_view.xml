@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="purchase_incident_form" model="ir.ui.view">
+        <field name="name">purchase.incidents.form</field>
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase.purchase_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page name="purchases_incident" string="Incidencias">
+                    <group>
+                        <group name="calification_field" string="Calificación" colspan="2">
+                            <field name="calification" class="oe_inline" widget="priority" attrs="{'readonly': False}"/>
+                        </group>
+                        <group name="basic_incident_fields" string="Incidencia por parte del proveedor">
+                             <field name="delivery_delay"/>
+                             <field name="bad_material"/>
+                             <field name="incomplete_material"/>
+                        </group>
+                        <!-- Con el atributo groups hacemos todo contenido dentro del elemento sea visible únicamente para los de ese grupo -->
+                        <!-- El grupo lo definimos dentro de security/ir_rule.xml -->
+                        <group name="admin_incident_fields" groups="fha_purchases_incidents.purchases_administration_group">
+                            <group name="administration_incidents" string="Incidencias Administrativas">
+                                <field name="invoice_wrong"/>
+                                <field name="no_receipt_invoice"/>
+                            </group>
+                            <group name="intern_incidents" string="Incidencias Internas">
+                                <field name="bad_request"/>
+                                <field name="bad_approved_request"/>
+                                <field name="no_send_invoice_admin_dpto"/>
+                            </group>
+                        </group>
+                        <group name="explication_field" string="Descripción" colspan="2">
+                            <field name="explication"/>
+                        </group>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="purchase_calification_tree" model="ir.ui.view">
+        <field name="name">purchase.calification.tree</field>
+        <field name="model">purchase.order</field>
+         <field name="inherit_id" ref="purchase.purchase_order_kpis_tree" />
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='user_id']" position="after">
+                 <field name="calification"/>
+            </xpath>
+            <xpath expr="//field[@name='partner_id']" position="after">
+                 <field name="date_order" optional="show" />
+            </xpath>
+        </field>
+    </record>
+    
+    <!-- Añadimos campo descripción a la vista tree -->
+    <record id="fha_purchase_order_tree_description" model="ir.ui.view">
+            <field name="name">fha.description.purchase.tree</field>
+            <field name="model">purchase.order</field>
+            <field name="inherit_id" ref="purchase.purchase_order_kpis_tree"/>
+            <field name="arch" type="xml">
+                <!-- ocultamos el campo origin en la vista tree -->
+                <xpath expr="//field[@name='origin']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//tree" position="inside">
+                    <field name="explication" string="Descripción"/>
+                </xpath>
+            </field>
+    </record>
+
+
+    <!-- Filtros vista para las incidencias -->
+    <record id="purchases_incidents_view_search" model="ir.ui.view">
+        <field name="name">purchases_incident.view.search</field>
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase.view_purchase_order_filter"/>
+        <field name="arch" type="xml">
+        <!-- Todo lo que añada será después del filtro con name 'starred' -->
+           <xpath expr="//filter[@name='starred']" position="after">
+                <filter name="filter_delivery_delay" string="Retraso en la entrega" domain="[('delivery_delay', '=', True)]"/>
+                <filter name="filter_bad_material" string="Material defectuoso" domain="[('bad_material', '=', True)]"/>
+                <filter name="filter_incomplete_material" string="Material incompleto" domain="[('incomplete_material', '=', True)]"/>
+           </xpath>
+        </field>
+    </record>
+
+</odoo>
