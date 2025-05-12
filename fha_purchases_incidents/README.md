@@ -25,7 +25,7 @@ En el caso que queramos que el usuario esté dentro del nuevo grupo "Administrad
     1.  Incidencias Administrativas
        - Factura errónea
        - No recepción de factura
-    3.  Incidencias Internas
+    2.  Incidencias Internas
        - Solicitud mal hecha
        - Solicitud mal aprobada
        - No se ha enviado la factura al departamento de administración
