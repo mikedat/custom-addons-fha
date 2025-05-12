@@ -23,9 +23,9 @@ En el caso que queramos que el usuario esté dentro del nuevo grupo "Administrad
   - Añadirá campos extra para el formulario de compra/solicitud de presupuesto
   - Campos extra:
     1.  Incidencias Administrativas
-       - Factura errónea
-       - No recepción de factura
+         - Factura errónea
+         - No recepción de factura
     2.  Incidencias Internas
-       - Solicitud mal hecha
-       - Solicitud mal aprobada
-       - No se ha enviado la factura al departamento de administración
+         - Solicitud mal hecha
+         - Solicitud mal aprobada
+         - No se ha enviado la factura al departamento de administración
