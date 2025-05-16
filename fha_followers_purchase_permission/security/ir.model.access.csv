@@ -1,2 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_fha_followers_purchase_permission_fha_followers_purchase_permission,fha_followers_purchase_permission.fha_followers_purchase_permission,model_fha_followers_purchase_permission_fha_followers_purchase_permission,base.group_user,1,1,1,1

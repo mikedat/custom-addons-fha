@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Inicio de Grupo para Administradores de compras -->
+            <record id="purchases_administration_group" model="res.groups">
+                <field name="name"> Adminitradores de compras </field>
+                <field name="comment"> Grupo para los administradores de compras </field>
+                <field name="category_id" ref="base.module_category_inventory_purchase"/>
+                <field name="implied_ids" eval="[(4, ref('purchase.group_purchase_user'))]"/>
+            </record>
+        <!-- Final de Grupo para Administradores de compras -->
+        
+        <!-- grupo para los seguidores de la compra -->
+            <record id="followers_purchase" model="res.groups">
+                <field name="name">Seguidores de compras</field>
+                <field name="comment">Grupo para que los seguidores también puedan ver la compra</field>
+                <field name="category_id" ref="base.module_category_inventory_purchase"/>
+                <field name="implied_ids" eval="[(4, ref('purchase.group_purchase_user'))]"/>
+            </record>
+        <!-- grupo para los seguidores de la compra -->
+
+        <!-- Inicio grupo para los jefes de departamento -->
+        <record id="purchase_head_department" model="res.groups">
+            <field name="name">Jefe de departamento</field>
+            <field name="comment">Grupo para jefes de departamento</field>
+            <field name="category_id" ref="base.module_category_inventory_purchase"/>
+            <field name="implied_ids" eval="[(4, ref('purchase.group_purchase_user'))]"/>
+        </record>
+        <!-- Final grupo para los jefes de departamento -->
+
+        <!-- Inicio grupo para los jefes de area -->
+        <record id="purchase_head_area" model="res.groups">
+            <field name="name">Jefe de Area</field>
+            <field name="comment"> Grupo para jefes de area </field>
+            <field name="category_id" ref="base.module_category_inventory_purchase"/>
+            <field name="implied_ids" eval="[(4, ref('purchase_head_department'))]"/>
+        </record>
+        <!-- Final grupo para los jefes de area -->
+
+        <!-- Inicio de la regla para los jefes de departamento -->
+        <record id="purchase_head_department_order" model="ir.rule">
+            <field name="name">Regla para jefes departamentales</field>
+            <field name="model_id" ref="purchase.model_purchase_order"/>
+            <field name="domain_force">
+            [('user_id.department_id.id', '=', user.department_id.id)]
+            </field>
+            <field name="groups" eval="[(4, ref('purchase_head_department'))]"/>
+        </record>
+        <!-- Fin de la regla para los jefes de departamento -->
+
+        <!-- Inicio de la regla para los jefes de area -->
+        <record id="purchase_head_area_order" model="ir.rule">
+            <field name="name">Regla para jefes de Area</field>
+            <field name="model_id" ref="purchase.model_purchase_order"/>
+            <field name="domain_force"> 
+              ['|', '|',
+            ('user_id', '=', user.id),
+            ('user_id.employee_id.parent_id.user_id', '=', user.id),
+            ('user_id.employee_id.parent_id.parent_id.user_id', '=', user.id)
+            ]
+            </field>
+            <field name="groups" eval="[(4, ref('purchase_head_area'))]"/>
+        </record>
+        <!-- Final de la regla para los jefes de area -->
+
+        <!-- Inicio para la regla de los seguidores de la compra -->
+            <record id="rule_followers_purchase" model="ir.rule">
+                <field name="name">Regla para los seguidores de la compra</field>
+                <field name="model_id" ref="purchase.model_purchase_order"/>
+                <field name="domain_force">[
+                ('message_partner_ids', 'in', [user.partner_id.id]),
+                ]</field>
+                <field name="groups" eval="[(4, ref('followers_purchase'))]"/>
+            </record>
+        <!-- Final para la regla de los seguidores de la compra -->
+
+        <!-- Inicio de la regla para que los seguidores de compra no puedan editar las compras ajenas que siguen -->
+            <record id="rule_followers_purchase_edit_record" model="ir.rule">
+                <field name="name">Regla para no poder editar compras ajenas</field>
+                <field name="model_id" ref="purchase.model_purchase_order"/>
+                <field name="domain_force">
+                ['|',
+                    ('message_partner_ids', 'not in', [user.partner_id.id]),
+                    ('create_uid', '=', user.id)
+                ]
+                </field>
+                <field name="groups" eval="[(4, ref('followers_purchase'))]"/>
+                <field name="perm_read" eval="0"/>
+                <field name="perm_write" eval="1"/>
+                <field name="perm_create" eval="0"/>
+                <field name="perm_unlink" eval="0"/>
+            </record>
+        <!-- Final de la regla para que los seguidores de compra no puedan editar las compras ajenas que siguen -->
+    </data>
+</odoo>

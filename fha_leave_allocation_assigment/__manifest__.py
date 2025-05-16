@@ -1,14 +1,16 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "fecha de validación en ausencias",
+    'name': "Fecha de validación en ausencias",
 
     'summary': """
         Módulo para poder editar el campo de periodo de validez
-          cuando la solicitud de asignación esté en estado 'enviar'""",
+        cuando la solicitud de asignación esté en estado 'enviar'
+        y añadirlo en la vista hr_holidays.hr_leave_allocation_view_form_dashboard""",
 
     'description': """
-                Módulo para poder editar el campo de periodo de validez
-          cuando la solicitud de asignación esté en estado 'enviar'
+        Módulo para poder editar el campo de periodo de validez
+        cuando la solicitud de asignación esté en estado 'enviar' 
+        y añadirlo en la vista hr_holidays.hr_leave_allocation_view_form_dashboard
     """,
 
     'author': "Miquel de Antonio Torné",
