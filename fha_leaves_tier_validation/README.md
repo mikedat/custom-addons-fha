@@ -13,6 +13,7 @@ Extiende el módulo `base_tier_validation` para gestionar aprobaciones en ausenc
 ### Configuración
 1. Activa el modo desarrollador en tu Odoo (Control+k y busca "debug").
 2. Una vez activado el modo desarrollador, ves a Ajustes > Técnico > Validación de Nivel > Definición de Nivel.
+3. Ya solo quedaría crear una nueva validación de nivel.
 
 ### Uso
 1. Cuando estés dentro de esa sección y crees una nueva definición de nivel, podrás elegir el modelo "Ausencias".
