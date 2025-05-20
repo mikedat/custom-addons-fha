@@ -69,7 +69,6 @@
             </field>
     </record>
 
-
     <!-- Filtros vista para las incidencias -->
     <record id="purchases_incidents_view_search" model="ir.ui.view">
         <field name="name">purchases_incident.view.search</field>
