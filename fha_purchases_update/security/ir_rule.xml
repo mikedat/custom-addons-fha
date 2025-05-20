@@ -15,7 +15,7 @@
                 <field name="name">Seguidores de compras</field>
                 <field name="comment">Grupo para que los seguidores también puedan ver la compra</field>
                 <field name="category_id" ref="base.module_category_inventory_purchase"/>
-             <!-- <field name="implied_ids" eval="[(4, ref('purchase.group_purchase_user'))]"/> -->
+                <field name="implied_ids" eval="[(4, ref('purchase.group_purchase_user'))]"/>
             </record>
         <!-- grupo para los seguidores de la compra -->
 
@@ -36,7 +36,7 @@
             <field name="implied_ids" eval="[(4, ref('purchase_head_department'))]"/>
         </record>
         <!-- Final grupo para los jefes de area -->
-
+        
         <!-- Inicio de la regla para los jefes de departamento -->
         <record id="purchase_head_department_order" model="ir.rule">
             <field name="name">Regla para jefes departamentales</field>
@@ -53,7 +53,8 @@
             <field name="name">Regla para jefes de Area</field>
             <field name="model_id" ref="purchase.model_purchase_order"/>
             <field name="domain_force"> 
-              ['|', '|',
+            [
+            '|', '|',
             ('user_id', '=', user.id),
             ('user_id.employee_id.parent_id.user_id', '=', user.id),
             ('user_id.employee_id.parent_id.parent_id.user_id', '=', user.id)
