@@ -23,10 +23,10 @@
     # always loaded
     'data': [
         'security/ir_rule.xml',
-        'views/followers_action.xml',
-        'views/followers_menu.xml',
-        'views/followers_view.xml',
         'views/purchase_view.xml',
         'views/res_partner.xml',
+        'views/followers_view.xml',
+        'views/followers_action.xml',
+        'views/followers_menu.xml',
     ],
 }

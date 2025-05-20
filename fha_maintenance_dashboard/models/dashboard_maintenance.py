@@ -23,6 +23,14 @@ class MaintenanceRequest(models.Model):
     expired_task_data = fields.Json(string="Datos de las tareas expiradas", compute="_compute_expired_task_data")
     executed_task_data = fields.Json(string="Datos de las tareas ejecutadas", compute="_compute_executed_task_data")
     executed_expired_task_data = fields.Json(string="Datos de las tareas ejecutadas fuera de plazo", compute="_compute_executed_expired_task_data")
+    dashboard_total_hours_count = fields.Integer(compute='_compute_dashboard_total_hours_count',string="Total de horas caducadas")
+
+    #Función para poder calcular el total de horas caducadas
+    def _compute_dashboard_total_hours_count(self):
+        for record in self:
+            total_hours = 0
+        
+
 
     #Función para poder almacenar en formato json las tareas ejecutadas fuera de plazo
     def _compute_executed_expired_task_data(self):

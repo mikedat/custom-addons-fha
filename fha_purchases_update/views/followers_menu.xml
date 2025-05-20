@@ -4,8 +4,9 @@
         <menuitem
             id="menu_follower_purchase"
             name="Compras seguidas"
-            action="fha_followers_purchase_permission.action_follower_purchase_orders_fha"
+            action="fha_purchases_update.action_follower_purchase_orders_fha"
             parent="purchase.menu_purchase_root"
+            groups="fha_purchases_update.followers_purchase"
             sequence="10"/>
     </data>
 </odoo>
