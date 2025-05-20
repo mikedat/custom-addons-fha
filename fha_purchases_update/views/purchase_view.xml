@@ -18,7 +18,7 @@
                         </group>
                         <!-- Con el atributo groups hacemos todo contenido dentro del elemento sea visible únicamente para los de ese grupo -->
                         <!-- El grupo lo definimos dentro de security/ir_rule.xml -->
-                        <group name="admin_incident_fields" groups="fha_purchases_incidents.purchases_administration_group">
+                        <group name="admin_incident_fields" groups="fha_purchases_update.purchases_administration_group">
                             <group name="administration_incidents" string="Incidencias Administrativas">
                                 <field name="invoice_wrong"/>
                                 <field name="no_receipt_invoice"/>
