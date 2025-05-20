@@ -63,5 +63,33 @@
             <field name="groups" eval="[(4, ref('purchase_head_area'))]"/>
         </record>
         <!-- Final de la regla para los jefes de area -->
+
+        <record id="purchase_order_followers_own_records_full_access_rule" model="ir.rule">
+            <field name="name">Orden de Compra: Seguidores - Acceso Total a Propias</field>
+            <field name="model_id" ref="purchase.model_purchase_order"/>
+            <field name="domain_force">[('create_uid', '=', user.id)]</field>
+            <field name="groups" eval="[(4, ref('followers_purchase'))]"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="True"/>
+            <field name="active" eval="True"/>
+        </record>
+
+        <record id="purchase_order_followers_others_read_only_rule" model="ir.rule">
+            <field name="name">Orden de Compra: Seguidores - Solo Lectura en Ajenas</field>
+            <field name="model_id" ref="purchase.model_purchase_order"/>
+             <field name="domain_force">[
+                ('message_follower_ids.partner_id', 'in', [user.partner_id.id]),
+                ('create_uid', '!=', user.id)
+            ]</field>
+            <field name="groups" eval="[(4, ref('followers_purchase'))]"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_unlink" eval="False"/>
+            <field name="active" eval="True"/>
+        </record>    
+
     </data>
 </odoo>
