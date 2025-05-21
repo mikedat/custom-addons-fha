@@ -9,6 +9,6 @@
     "application": False,
     "installable": True,
     "depends": ["hr_holidays", "base_tier_validation"],
-    "data": [],
+    "data": ['views/fha_leaves_methods.xml'],
 }
 

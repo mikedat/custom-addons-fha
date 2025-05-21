@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="fha_leaves_tier_validation_view_kanban" model="ir.ui.view">
+            <field name="name">fha_leaves_tier_validation.view.kanban</field>
+            <field name="model">hr.leave</field>
+            <field name="inherit_id" ref="hr_holidays.hr_leave_view_kanban"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//button[@name='action_approve']" position="before">
+                    <button t-if="record.state.raw_value === 'confirm'" name="fha_action_approve" type="object" class="btn btn-link btn-sm ps-0" groups="hr_holidays.group_hr_holidays_user">
+                        <i class="fa fa-thumbs-up"/>
+                            Aprobar
+                    </button>
+                </xpath>
+                <xpath expr="//button[@name='action_approve']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+
+
+                <xpath expr="//button[@name='action_validate']" position="before">
+                    <button t-if="record.state.raw_value === 'validate1'" name="fha_action_validate" type="object" class="btn btn-link btn-sm ps-0" groups="hr_holidays.group_hr_holidays_manager">
+                        <i class="fa fa-check"/>
+                            Validar
+                    </button>
+                </xpath>
+                <xpath expr="//button[@name='action_validate']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+
+
+                <xpath expr="//button[@name='action_refuse']" position="before">
+                    <button t-if="['confirm', 'validate1'].includes(record.state.raw_value)" name="fha_action_refuse" type="object" class="btn btn-link btn-sm ps-0" groups="hr_holidays.group_hr_holidays_user">
+                        <i class="fa fa-times"/>
+                            Rechazar
+                    </button>
+                </xpath>
+                <xpath expr="//button[@name='action_refuse']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="fha_leaves_tier_validation_view_tree" model="ir.ui.view">
+            <field name="name">fha_leaves_tier_validation.view.tree</field>
+            <field name="model">hr.leave</field>
+            <field name="inherit_id" ref="hr_holidays.hr_leave_view_tree"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//button[@name='action_approve']" position="before">
+                    <button string="Aprobar" name="fha_action_approve" type="object" icon="fa-thumbs-up" states="confirm" groups="hr_holidays.group_hr_holidays_responsible"/>
+                </xpath>
+                <xpath expr="//button[@name='action_approve']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+
+
+                <xpath expr="//button[@name='action_validate']" position="before">
+                    <button string="Validar" name="fha_action_validate" type="object" icon="fa-check" states="validate1" groups="hr_holidays.group_hr_holidays_user"/>
+                </xpath>
+                <xpath expr="//button[@name='action_validate']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+
+
+                <xpath expr="//button[@name='action_refuse']" position="before">
+                    <button string="Rechazar" name="fha_action_refuse" type="object" icon="fa-times" states="confirm,validate1" groups="hr_holidays.group_hr_holidays_user"/>
+                </xpath>
+                <xpath expr="//button[@name='action_refuse']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="hr_leave_view_tree_my_inherit_fha" model="ir.ui.view">
+            <field name="name">hr.leave.view.tree.my.inherit.fha</field>
+            <field name="model">hr.leave</field>
+            <field name="inherit_id" ref="fha_leaves_tier_validation.hr_leave_view_tree_my"/>
+            <field name="arch" type="xml">
+                <xpath expr="//button[@name='fha_action_approve']" position="attributes">
+                    <attribute name="invisibility">1</attribute>
+                </xpath>
+                <xpath expr="//button[@name='fha_action_validate']" position="attributes">
+                    <attribute name="invisibility">1</attribute>
+                </xpath>
+                <xpath expr="//button[@name='action_refuse']" position="attributes">
+                     <attribute name="name">fha_action_refuse_tree</attribute>
+                </xpath>
+            </field>
+        </record>
+
+
+    </data>
+</odoo>
