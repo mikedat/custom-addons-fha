@@ -1,6 +1,5 @@
 # Validaciones para ausencias de empleados
-
-Extiende el módulo `base_tier_validation` para gestionar aprobaciones en ausencias (`hr.leave`).
+- Módulo para lograr la validación de ausencias.
 
 ### Dependencias
 - `base_tier_validation`
@@ -8,7 +7,6 @@ Extiende el módulo `base_tier_validation` para gestionar aprobaciones en ausenc
 
 ### Instalación
 1. Ves a la sección de aplicaciones de tu Odoo y busca "fha_leaves_tier_validation".
-
 
 ### Configuración
 1. Activa el modo desarrollador en tu Odoo (Control+k y busca "Depuración").
