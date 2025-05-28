@@ -1,4 +1,7 @@
-## Configuración externa para el correcto funcionamiento del módulo
+## Módulo para partes de horas de jefes de departamento y de área
+- Con este módulo se logran dos cosas:
+  1. Los jefes de departamento pueden ver los partes de horas de sus empleados
+  2. Los jefes de área pueden ver los partes de horas de sus empleados 
 
 **Importante estar en modo desarrollador** 
 1. Ir a Ajuste > Usuarios
